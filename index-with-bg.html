@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Landing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .hero-section {
+            height: 100vh;
+            width: 100%;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('img/snoop.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .play-button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            border: none;
+            padding: 25px 50px;
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .play-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .play-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
+            background: linear-gradient(45deg, #ff5252, #d63031);
+        }
+
+        .play-button:hover::before {
+            left: 100%;
+        }
+
+        .play-button:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        /* Анимация пульсации */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+            }
+            50% {
+                box-shadow: 0 10px 30px rgba(255, 107, 107, 0.8);
+            }
+            100% {
+                box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+            }
+        }
+
+        .play-button {
+            animation: pulse 2s infinite;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .play-button {
+                padding: 20px 40px;
+                font-size: 22px;
+                letter-spacing: 2px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .play-button {
+                padding: 15px 30px;
+                font-size: 18px;
+                letter-spacing: 1px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero-section">
+        <button class="play-button" onclick="goToBot()">
+            Go to Play
+        </button>
+    </section>
+    <script>
+        function goToBot() {
+            const button = document.querySelector('.play-button');
+            
+            // Эффект клика
+            button.style.transform = 'scale(0.95)';
+            button.style.transition = 'transform 0.1s';
+            
+            setTimeout(() => {
+                button.style.transform = '';
+                button.style.transition = 'all 0.3s ease';
+                
+                // Переход к Telegram боту
+                window.open('https://t.me/snoopdoggspin_bot', '_blank');
+                
+            }, 150);
+        }
+
+        // Дополнительные эффекты
+        document.addEventListener('DOMContentLoaded', function() {
+            const button = document.querySelector('.play-button');
+            const title = document.querySelector('.title');
+            
+            // Эффект появления заголовка
+            title.style.opacity = '0';
+            title.style.transform = 'translateX(-50%) translateY(-30px)';
+            
+            setTimeout(() => {
+                title.style.transition = 'all 1s ease-out';
+                title.style.opacity = '1';
+                title.style.transform = 'translateX(-50%) translateY(0)';
+            }, 300);
+            
+            // Эффект появления кнопки
+            setTimeout(() => {
+                button.style.opacity = '0';
+                button.style.transform = 'translateY(50px)';
+                
+                setTimeout(() => {
+                    button.style.transition = 'all 1s ease-out';
+                    button.style.opacity = '1';
+                    button.style.transform = 'translateY(0)';
+                }, 100);
+            }, 800);
+            
+            // Звуковой эффект при наведении
+            button.addEventListener('mouseenter', function() {
+                console.log('🎵 Ready to spin!');
+            });
+        });
+
+        // Дополнительная проверка для мобильных устройств
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        // Альтернативный способ открытия для мобильных
+        if (isMobile()) {
+            function goToBot() {
+                const button = document.querySelector('.play-button');
+                
+                button.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    button.style.transform = '';
+                    // Для мобильных устройств используем прямую ссылку
+                    window.location.href = 'https://t.me/snoopdoggspin_bot';
+                }, 150);
+            }
+        }
+    </script>
+</body>
+</html>
