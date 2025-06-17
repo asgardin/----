@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,9 +26,86 @@
             background-position: center;
             background-repeat: no-repeat;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             position: relative;
+            padding: 20px;
+            gap: 30px;
+        }
+
+        .game-title {
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 
+                2px 2px 4px rgba(0,0,0,0.8),
+                0 0 10px rgba(255, 107, 107, 0.5),
+                0 0 20px rgba(255, 107, 107, 0.3);
+            z-index: 10;
+            font-family: 'Arial Black', Arial, sans-serif;
+            letter-spacing: 2px;
+            line-height: 1.2;
+            max-width: 90%;
+            margin-bottom: 15px;
+        }
+
+        .game-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 24px;
+            font-weight: 400;
+            text-align: center;
+            text-shadow: 
+                1px 1px 3px rgba(0,0,0,0.7),
+                0 0 8px rgba(255, 107, 107, 0.3);
+            z-index: 10;
+            font-family: Arial, sans-serif;
+            letter-spacing: 1px;
+            line-height: 1.4;
+            max-width: 85%;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive adjustments for the title and subtitle */
+        @media (max-width: 768px) {
+            .hero-section {
+                gap: 25px;
+                padding: 15px;
+            }
+            
+            .game-title {
+                font-size: 36px;
+                letter-spacing: 1px;
+                margin-bottom: 12px;
+            }
+
+            .game-subtitle {
+                font-size: 20px;
+                letter-spacing: 0.5px;
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                gap: 20px;
+                padding: 10px;
+            }
+            
+            .game-title {
+                font-size: 28px;
+                letter-spacing: 0.5px;
+                line-height: 1.1;
+                margin-bottom: 10px;
+            }
+
+            .game-subtitle {
+                font-size: 18px;
+                letter-spacing: 0px;
+                line-height: 1.3;
+                margin-bottom: 12px;
+            }
         }
 
         .play-button {
@@ -46,6 +123,7 @@
             box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
             position: relative;
             overflow: hidden;
+            z-index: 10;
         }
 
         .play-button::before {
@@ -73,7 +151,7 @@
             transform: translateY(-2px) scale(1.02);
         }
 
-        /* Анимация пульсации */
+        /* Pulse animation */
         @keyframes pulse {
             0% {
                 box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
@@ -90,12 +168,62 @@
             animation: pulse 2s infinite;
         }
 
-        /* Адаптивность */
+        /* Footer styles */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            text-align: center;
+            z-index: 100;
+            border-top: 1px solid rgba(255, 107, 107, 0.3);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #ff6b6b;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .footer-links a:hover {
+            color: #ff5252;
+            background: rgba(255, 107, 107, 0.1);
+            text-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
+        }
+
+        .footer-copyright {
+            margin-top: 10px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 12px;
+        }
+
+        /* Responsive design */
         @media (max-width: 768px) {
             .play-button {
                 padding: 20px 40px;
                 font-size: 22px;
                 letter-spacing: 2px;
+            }
+
+            .footer-links {
+                gap: 20px;
+            }
+
+            .footer-links a {
+                font-size: 13px;
             }
         }
 
@@ -105,20 +233,133 @@
                 font-size: 18px;
                 letter-spacing: 1px;
             }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .footer {
+                padding: 10px 15px;
+            }
+        }
+
+        /* Override any external CSS that might hide the banner */
+        .A2O4W8X6IK {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        /* Cookie consent banner styles - FORCE VISIBLE */
+        .cookie-banner {
+            position: fixed !important;
+            bottom: 20px !important;
+            right: 20px !important;
+            background: rgba(0, 0, 0, 0.95) !important;
+            backdrop-filter: blur(10px) !important;
+            color: white !important;
+            padding: 20px !important;
+            border-radius: 15px !important;
+            border: 2px solid #ff6b6b !important;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4) !important;
+            max-width: 350px !important;
+            z-index: 9999 !important;
+            /* Force visibility */
+            display: block !important;
+            opacity: 1 !important;
+            transform: translateX(0) !important;
+            visibility: visible !important;
+        }
+
+        .cookie-banner.hide {
+            transform: translateX(400px) !important;
+            opacity: 0 !important;
+            transition: all 0.6s ease-out !important;
+        }
+
+        .cookie-text {
+            font-size: 14px !important;
+            line-height: 1.4 !important;
+            margin-bottom: 15px !important;
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .cookie-text a {
+            color: #ff6b6b !important;
+            text-decoration: none !important;
+        }
+
+        .cookie-text a:hover {
+            text-decoration: underline !important;
+        }
+
+        .cookie-button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24) !important;
+            border: none !important;
+            padding: 10px 20px !important;
+            font-size: 14px !important;
+            font-weight: bold !important;
+            color: white !important;
+            border-radius: 25px !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3) !important;
+            width: 100% !important;
+        }
+
+        .cookie-button:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4) !important;
+            background: linear-gradient(45deg, #ff5252, #d63031) !important;
+        }
+
+        @media (max-width: 480px) {
+            .cookie-banner {
+                bottom: 10px !important;
+                right: 10px !important;
+                left: 10px !important;
+                max-width: none !important;
+            }
         }
     </style>
 </head>
 <body>
     <section class="hero-section">
+        <h1 class="game-title">Tap to Try the Game – It's Fun and Free!</h1>
+        <p class="game-subtitle">This mini experience opens right in Telegram.<br>Safe, simple, and made just for fun.</p>
         <button class="play-button" onclick="goToBot()">
             Go to Play
         </button>
     </section>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="/privacy-policy.html">Privacy Policy</a>
+            <a href="/terms.html">Terms of Service</a>
+            <a href="https://t.me/snoopdoggspin_bot" target="_blank">Telegram Bot</a>
+        </div>
+        <div class="footer-copyright">
+            © 2024 Game Landing. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Banner - FORCE VISIBLE -->
+    <div id="cookieBanner" class="cookie-banner A2O4W8X6IK">
+        <div class="cookie-text">
+            We use cookies to improve your experience on our website. By continuing to browse, you agree to our use of cookies. 
+            <a href="/privacy-policy.html">Learn more</a>
+        </div>
+        <button class="cookie-button" onclick="acceptCookies()">
+            OK, Got it!
+        </button>
+    </div>
+
     <script>
         function goToBot() {
             const button = document.querySelector('.play-button');
             
-            // Эффект клика
+            // Click effect
             button.style.transform = 'scale(0.95)';
             button.style.transition = 'transform 0.1s';
             
@@ -126,51 +367,67 @@
                 button.style.transform = '';
                 button.style.transition = 'all 0.3s ease';
                 
-                // Переход к Telegram боту
+                // Navigate to Telegram bot
                 window.open('https://t.me/snoopdoggspin_bot', '_blank');
                 
             }, 150);
         }
 
-        // Дополнительные эффекты
+        // Additional effects
         document.addEventListener('DOMContentLoaded', function() {
             const button = document.querySelector('.play-button');
-            const title = document.querySelector('.title');
+            const title = document.querySelector('.game-title');
+            const subtitle = document.querySelector('.game-subtitle');
             
-            // Эффект появления заголовка
+            // Title appearance effect
             title.style.opacity = '0';
-            title.style.transform = 'translateX(-50%) translateY(-30px)';
+            title.style.transform = 'translateY(-30px)';
             
             setTimeout(() => {
                 title.style.transition = 'all 1s ease-out';
                 title.style.opacity = '1';
-                title.style.transform = 'translateX(-50%) translateY(0)';
-            }, 300);
+                title.style.transform = 'translateY(0)';
+            }, 200);
+
+            // Subtitle appearance effect
+            subtitle.style.opacity = '0';
+            subtitle.style.transform = 'translateY(-20px)';
             
-            // Эффект появления кнопки
             setTimeout(() => {
-                button.style.opacity = '0';
-                button.style.transform = 'translateY(50px)';
-                
-                setTimeout(() => {
-                    button.style.transition = 'all 1s ease-out';
-                    button.style.opacity = '1';
-                    button.style.transform = 'translateY(0)';
-                }, 100);
+                subtitle.style.transition = 'all 1s ease-out';
+                subtitle.style.opacity = '1';
+                subtitle.style.transform = 'translateY(0)';
+            }, 400);
+
+            // Button appearance effect
+            button.style.opacity = '0';
+            button.style.transform = 'translateY(30px)';
+            
+            setTimeout(() => {
+                button.style.transition = 'all 1s ease-out';
+                button.style.opacity = '1';
+                button.style.transform = 'translateY(0)';
             }, 800);
             
-            // Звуковой эффект при наведении
+            // Sound effect on hover
             button.addEventListener('mouseenter', function() {
                 console.log('🎵 Ready to spin!');
             });
+
+            // Force show banner with JavaScript as backup
+            const banner = document.getElementById('cookieBanner');
+            banner.style.setProperty('display', 'block', 'important');
+            banner.style.setProperty('visibility', 'visible', 'important');
+            banner.style.setProperty('opacity', '1', 'important');
+            console.log('Cookie banner forced visible');
         });
 
-        // Дополнительная проверка для мобильных устройств
+        // Additional check for mobile devices
         function isMobile() {
             return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         }
 
-        // Альтернативный способ открытия для мобильных
+        // Alternative opening method for mobile
         if (isMobile()) {
             function goToBot() {
                 const button = document.querySelector('.play-button');
@@ -178,10 +435,30 @@
                 button.style.transform = 'scale(0.95)';
                 setTimeout(() => {
                     button.style.transform = '';
-                    // Для мобильных устройств используем прямую ссылку
+                    // For mobile devices use direct link
                     window.location.href = 'https://t.me/snoopdoggspin_bot';
                 }, 150);
             }
+        }
+
+        function acceptCookies() {
+            console.log('Accepting cookies'); // Debug log
+            const banner = document.getElementById('cookieBanner');
+            banner.classList.add('hide');
+            
+            // Store acceptance in localStorage
+            localStorage.setItem('cookieAccepted', 'true');
+            
+            // Remove banner from DOM after animation
+            setTimeout(() => {
+                banner.style.setProperty('display', 'none', 'important');
+            }, 600);
+        }
+
+        // Test function to reset cookies (for testing)
+        function resetCookies() {
+            localStorage.removeItem('cookieAccepted');
+            location.reload();
         }
     </script>
 </body>
